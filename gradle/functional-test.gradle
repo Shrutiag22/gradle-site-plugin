@@ -1,8 +1,8 @@
 sourceSets {
     functionalTest {
-        groovy.srcDir file('src/functTest/groovy')
+        groovy.srcDir file('src/functTest/kotlin')
         resources.srcDir file('src/functTest/resources')
-        compileClasspath += sourceSets.main.output + configurations.testRuntime
+        compileClasspath += sourceSets.main.output + configurations.testCompile + configurations.testRuntime
         runtimeClasspath += output + compileClasspath
     }
 }
@@ -28,4 +28,6 @@ gradlePlugin {
 
 dependencies {
     functionalTestCompile 'org.jsoup:jsoup:1.10.2'
+    functionalTestCompile 'junit:junit:4.12'
+    functionalTestCompile gradleTestKit()
 }
