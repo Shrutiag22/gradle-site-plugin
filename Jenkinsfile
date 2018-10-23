@@ -4,7 +4,6 @@ pipeline{
     stage('Build'){
       steps{
         echo 'Building..'
-        echo $PWD
         sh './gradlew build'
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
       }
